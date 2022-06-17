@@ -5,10 +5,10 @@ const text2 = chance.sentence({ words: 3 })
 describe ("Testing Cypress realworld app", ()=> {
     
     it("Create new transaction", function(){
-        cy.intercept('GET','http://localhost:3001/notifications').as('userLoad')
+        cy.intercept('GET','http://localhost:3001/notifications').as('notifiLoad')
 
         cy.login('Tavares_Barrows', 's3cret')
-        cy.wait('@userLoad', {timeout: 10000})
+        cy.wait('@notifiLoad', {timeout: 10000})
         
         cy.get('[data-test="sidenav"]')
             .should('include.text', 'Tavares_Barrows')
@@ -42,8 +42,7 @@ describe ("Testing Cypress realworld app", ()=> {
         cy.get('[placeholder="Write a comment..."]').type(text2).type('{enter}')
         cy.get ('[data-test="comments-list"]').should('include.text',text2)
         cy.get('[data-test="nav-top-notifications-count"]').click()
-        cy.get('[data-test="notification-list-item-dSSTpTqL5I"] .MuiListItemText-root .MuiTypography-root')
-        .first()
-        .should('include.text','Arely Kertzmann commented on a transaction.')
+        cy.get('[data-test="notification-list-item-xKYxr-m2NG"]').should('include.text','Arely Kertzmann commented on a transaction.')
+        cy.get('[data-test="notification-list-item-GgA5SdjMMk"]').should('include.text','Arely Kertzmann liked a transaction.')
     })
 })
