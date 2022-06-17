@@ -1,7 +1,7 @@
 
 describe ("Testing Cypress realworld app", ()=> {
     
-    it("Login user, and walidate all user data", function(){
+    it("User Login", function(){
         cy.intercept('GET','http://localhost:3001/notifications').as('userLoad')
 
         cy.login('Tavares_Barrows', 's3cret')
