@@ -16,6 +16,5 @@ describe ("Testing Cypress realworld app", ()=> {
         cy.get('[data-test="user-settings-phoneNumber-input"]').should('have.value', '537-041-4355')
         cy.contains('Bank Accounts').click()
         cy.get('[data-test="bankaccount-list-item-lWfxENA5ZNy"]').should('include.text', "Kshlerin - Ledner Bank")
-
     })
 })
