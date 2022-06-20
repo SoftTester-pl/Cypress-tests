@@ -4,10 +4,10 @@ const bankRoutingNO = chance.ssn({ ssnNine: true, dashes: false })
 const accountNO = chance.natural({min: 0, max: 999999999999})
 
 describe ('Testing Cypress realworld app', ()=>{
-
+    
     it('Create new bank account', function (){
         cy.intercept('GET','http://localhost:3001/notifications').as('notifiLoad')
-       
+        
         cy.login('Tavares_Barrows', 's3cret')
         cy.wait('@notifiLoad', {timeout:10000})
         cy.get('[data-test="sidenav-bankaccounts"]').click()
