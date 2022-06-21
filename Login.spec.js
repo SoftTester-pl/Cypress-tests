@@ -1,11 +1,11 @@
 
-describe ("Testing Cypress realworld app", ()=> {
+describe ('Testing Cypress realworld app', ()=>{
     
-    it("User Login", function(){
-        cy.intercept('GET','http://localhost:3001/notifications').as('userLoad')
+    it('User Login', function(){
+        cy.intercept('GET','http://localhost:3001/notifications').as('nofiLoad')
 
         cy.login('Tavares_Barrows', 's3cret')
-        cy.wait('@userLoad', {timeout: 10000})
+        cy.wait('@notifiLoad', {timeout: 10000})
         cy.get('[data-test="sidenav"]')
             .should('include.text', 'Tavares_Barrows')
             .and('be.visible')
