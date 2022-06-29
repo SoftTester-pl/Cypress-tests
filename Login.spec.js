@@ -2,7 +2,7 @@
 describe ('Testing Cypress realworld app', ()=>{
     
     it('User Login', function(){
-        cy.intercept('GET','http://localhost:3001/notifications').as('nofiLoad')
+        cy.intercept('GET','http://localhost:3001/notifications').as('notifiLoad')
 
         cy.login('Tavares_Barrows', 's3cret')
         cy.wait('@notifiLoad', {timeout: 10000})
